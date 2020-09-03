@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    perspective: 1000px;
+}
+.members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+    margin-top: 3rem
+}
+.member-info {
+    position: relative;
+    height: 250px;
+    width: 350px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: .5s
+}
+.member:hover .member-info{
+    transform: rotateY(180deg)
+}
+.front {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+.member:first-of-type .front{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(../img/1.jpg);
+}
+.member:nth-of-type(2) .front{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(../img/2.jpg);
+}
+.member:last-of-type .front{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(../img/3.jpg);
+}
+.front h2 {
+    font-size: 2.2rem;
+    margin-bottom: .5rem;
+}
+.front span {
+    font-size: 1.2rem;
+}
+.back {
+    position: absolute;
+    left:0;
+    top:0;
+    background-color: red;
+    z-index: 1;
+    padding: 1rem;
+    line-height: 1.5;
+    transform-style: preserve-3d;
+    transform: translateZ(-1px) rotateY(180deg);
+}
+.back p {
+    width: 90%;
+    margin: 0 auto;
+}
+.content {
+    color: #FFF;
+    transform: translateZ(100px)
+}
+.member:first-of-type .content {
+    transform: translateZ(100px) translateX(2.4rem)
+} 
+.member:last-of-type .content {
+    transform: translateZ(100px) translateX(-2.4rem)
+}
